@@ -1,8 +1,8 @@
 pipeline {
   agent any
   triggers {
-    issueCommentTrigger('.*pipeline please rebuild.*')
-
+    triggers { pollSCM('/2 * * * ') }
+    when { branch 'master' }
     }
   
   stages {
