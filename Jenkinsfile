@@ -1,8 +1,8 @@
 pipeline {
   agent any
   triggers {
-    triggers { pollSCM('/2 * * * ') }
-    when { branch 'master' }
+     pollSCM('/2 * * * ') 
+     when { branch 'master' }
     }
   
   stages {
