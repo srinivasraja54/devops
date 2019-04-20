@@ -1,7 +1,7 @@
 pipeline {
   agent any
   triggers {
-        pollSCM ('H */4 * * 1-5')
+        properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
         when { branch 'master' }
     }
   
