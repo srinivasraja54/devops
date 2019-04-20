@@ -1,8 +1,8 @@
 pipeline {
   agent any
   triggers {
-        properties([pipelineTriggers([[$class: 'GitHubPushTrigger'], pollSCM('H/15 * * * *')])])
-        when { branch 'master' }
+    issueCommentTrigger('.*pipeline please rebuild.*')
+
     }
   
   stages {
