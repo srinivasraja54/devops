@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('shell print') {
       steps {
-        sh 'echo "srinivas "'
+        sh 'echo "srinivas raja pasupuleti"'
       }
     }
   }
