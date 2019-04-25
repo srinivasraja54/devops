@@ -1,11 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('checkout') {
-      steps {	    
-        checkout scm
-      }
-    }   
     stage('Docker build') {
       steps {
 	sh "docker build -f Dockerfile -t test02.osdemo.com:5000/httpd-image ."
