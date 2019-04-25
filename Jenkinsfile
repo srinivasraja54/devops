@@ -3,11 +3,15 @@ pipeline {
   triggers {
      pollSCM('H */4 * * 1-5') 
     }
-  
   stages {
-    stage('shell print') {
+  stage('Clone repository') {
+        /* Let's make sure we have the repository cloned to our workspace */
+      checkout scm
+  }
+    stage('Docker build') {
       steps {
-        sh 'echo "srinivas raja pasupuleti is a bad boy"'
+	sh "buildah bud -f Dockerfile -t httpd-image ."
+        sh 'echo "successfully built docker image"'
       }
     }
   }
