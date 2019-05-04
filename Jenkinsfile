@@ -14,8 +14,8 @@ pipeline {
     stage('Docker build') {
       steps {
       script {
-       docker.withRegistry( 'https://' + registry + '/') {
-		    def buildName = registry + image_name
+       docker.withRegistry( 'https://' + registry ) {
+		    def buildName = registry + '/' + image_name
 			newApp = docker.build buildName
 			newApp.push()
        }
