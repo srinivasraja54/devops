@@ -1,1 +1,1 @@
-#new devops trained
+#new devops training
