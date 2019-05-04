@@ -25,7 +25,7 @@ pipeline {
 	    stage('Docker image cleaning') {
 	      steps {
 		  sh 'echo "d unused ocker image pruning"'
-		  sh "docker rmi $registry$image_name:$BUILD_NUMBER"
+		  sh "docker rmi $registry$image_name"
 	        }
 	     }	 
    
