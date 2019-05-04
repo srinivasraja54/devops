@@ -19,6 +19,7 @@ pipeline {
 			newApp.push()
        }	      
 //http-image3.push()
+      }
     }
   }
 }
