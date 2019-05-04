@@ -12,11 +12,13 @@ pipeline {
     }
     stage('Docker build') {
       steps {
+      script {
 	//def http-image3 = docker.build("http-image3:${env.BUILD_ID}")'
        docker.withRegistry( 'https://' + registry ) {
 		    def buildName = registry + ":$BUILD_NUMBER"
 			newApp = docker.build buildName
 			newApp.push()
+       }
        }	      
 //http-image3.push()
       }
