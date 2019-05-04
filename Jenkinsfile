@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "test02.osdemo.com:5000"
-    image_name = "http-image2" + ":$BUILD_NUMBER"
+    image_name = "/http-image2" + ":$BUILD_NUMBER"
    }
   agent any
   stages {
@@ -15,7 +15,7 @@ pipeline {
       steps {
       script {
        docker.withRegistry( 'https://' + registry ) {
-		    def buildName = registry + "/" + image_name
+		    def buildName = registry + image_name
 			newApp = docker.build buildName
 			newApp.push()
        }
