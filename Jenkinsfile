@@ -1,7 +1,7 @@
 pipeline {
   environment {
-    registry = "test02.osdemo.com:5000"
-    image_name = "/http-image2" + ":$BUILD_NUMBER"
+    registry = "test02.osdemo.com:5000/"
+    image_name = "http-image2" + ":$BUILD_NUMBER"
    }
   agent any
   stages {
