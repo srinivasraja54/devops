@@ -21,13 +21,11 @@ pipeline {
 	        }
        	      }  	      
             }
-	  stages {
 	    stage('Docker image cleaning') {
 	      steps {
-		sh 'echo "d unused ocker image pruning"'
+		  sh 'echo "d unused ocker image pruning"'
 		  sh "docker rmi $registry:$BUILD_NUMBER"
 	        }
 	     }	 
         }
-  }
 }
