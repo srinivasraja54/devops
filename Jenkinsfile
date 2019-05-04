@@ -11,7 +11,7 @@ pipeline {
 		sh 'cat Dockerfile'
 	        }
 	      }
-	    stage('Docker build') {
+	    stage('Docker build & push') {
 	      steps {
 	      script {
 	       docker.withRegistry( 'https://' + registry ) {
@@ -19,8 +19,16 @@ pipeline {
 				newApp = docker.build buildName
 				newApp.push()
 	        }
-       	     }  	      
+       	      }  	      
             }
-      }
+	  stages {
+	    stage('Docker image cleaning') {
+	      steps {
+		sh 'echo "d unused ocker image pruning"'
+		  sh "docker rmi $registry:$BUILD_NUMBER"
+	        }
+	     }
+		  
+        }
    }
 }
