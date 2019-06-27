@@ -28,6 +28,12 @@ pipeline {
 		  sh "docker rmi $registry$image_name"
 	        }
 	     }	 
-   
+	    stage('oc connection') {
+	      steps {
+		  sh 'echo "Connecting to OCP.."'
+		  sh "oc login https://console.master.192.168.1.8.nip.io:8443 --token=I-XKQkMnZbv2QI0sa-Gjis2GQcKbV0KDB7aHw_8IrCY"
+		  sh "oc get pods -n persistent-storage"
+	        }
+	     }	    
  }
 }
