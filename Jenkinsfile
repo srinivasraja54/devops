@@ -31,7 +31,7 @@ pipeline {
 	    stage('oc connection') {
 	      steps {
 		  sh 'echo "Connecting to OCP.."'
-		  sh "docker run login https://master.192.168.1.8.nip.io:8443 -u srinivas -p Nepolian@1 --insecure-skip-tls-verify=true"
+		  sh "docker run test02.osdemo.com:5000/ocimage login https://master.192.168.1.8.nip.io:8443 -u srinivas -p Nepolian@1 --insecure-skip-tls-verify=true"
 		  sh "docker run test02.osdemo.com:5000/ocimage get pods -n persistent-storage"
 	        }
 	     }	    
